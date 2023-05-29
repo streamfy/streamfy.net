@@ -1,0 +1,138 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "98bf54d4-9e89-4577-9a4f-0ad30c1c9fb7",
+      "name": "Capital Markets",
+      "slug": "capital-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": [
+        {
+          "id": "98bf54d4-a4b2-448c-857a-52231ee521c2",
+          "name": "Stock Market",
+          "slug": "stock-market",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        },
+        {
+          "id": "98bf54d4-a74d-4300-92de-afd3e8e6cf21",
+          "name": "Bond Market",
+          "slug": "bond-market",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        }
+      ]
+    },
+    {
+      "id": "98bf54d4-ac7c-4a17-b4fa-1be0c5397592",
+      "name": "Commodity Markets",
+      "slug": "commodity-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": [
+        {
+          "id": "98bf54d4-ae4e-4c9e-9d95-dec82046aca1",
+          "name": "Energy",
+          "slug": "energy",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        },
+        {
+          "id": "98bf54d4-b03f-4ca4-afd8-7bb7a213905f",
+          "name": "Agriculture",
+          "slug": "agriculture",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        },
+        {
+          "id": "98bf54d4-b249-49f0-9f83-bca6f67bed08",
+          "name": "Metals",
+          "slug": "metals",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        },
+        {
+          "id": "98bf54d4-b432-4dc8-a3b8-a7eaee055da0",
+          "name": "Softs",
+          "slug": "softs",
+          "icon": null,
+          "cover": null,
+          "status": 11300
+        }
+      ]
+    },
+    {
+      "id": "98bf54d4-b62c-4df9-878d-fb1eb635d98b",
+      "name": "Money Markets",
+      "slug": "money-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-b7f8-4ec2-bffe-ae6669d12a12",
+      "name": "Derivatives Markets",
+      "slug": "derivatives-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-b9bb-4c3c-97ab-29e87b80730a",
+      "name": "Future Markets",
+      "slug": "future-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-bb6b-4abc-84a0-437438f684d8",
+      "name": "Forex Markets",
+      "slug": "forex-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-bd1c-48af-959f-b55eb5fde3ad",
+      "name": "Crypto Markets",
+      "slug": "crypto-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-befe-4392-a325-5089511f6766",
+      "name": "Spot Markets",
+      "slug": "spot-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    },
+    {
+      "id": "98bf54d4-c0e9-4dbd-94ef-d3888fed4ad8",
+      "name": "Interbank Markets",
+      "slug": "interbank-markets",
+      "icon": null,
+      "cover": null,
+      "status": 11300,
+      "children": []
+    }
+  ],
+  "metas": []
+}

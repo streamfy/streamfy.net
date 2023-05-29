@@ -1,0 +1,49 @@
+{
+    "succeed": true,
+    "message": "Response successfully returned",
+    "results": {
+        "uuid": "98cd5113-937f-48f0-91c5-db01ea8fa5f2",
+        "name": "test name",
+        "company": "test company",
+        "identity": "8946511845611",
+        "trade_mode": 15201,
+        "margin_type": 15301,
+        "order_limit": 200,
+        "trade_allowed": true,
+        "hedge": true,
+        "capital_road": false,
+        "server": "test server",
+        "link": null,
+        "currency": null,
+        "leverage": null,
+        "stopout_level": null,
+        "report": 0,
+        "status": 15001,
+        "balance": null,
+        "credit": null,
+        "equity": null,
+        "margin": null,
+        "free_margin": null,
+        "margin_level": null,
+        "broker": {
+            "id": "98gdc2a2-4251-4619-9bb6-3905d22ber88",
+            "name": "",
+            "logo": null
+        },
+        "market": {
+            "id": "98bdf2a1-81db-4734-af19-9f2dea855dcf",
+            "name": "Bond Market",
+            "slug": "bond-market",
+            "icon": null
+        },
+        "platforms": [
+            {
+                "id": "98c3828c-2bb8-4fe2-b280-f8a5b4b3446f",
+                "title": "",
+                "slug": null,
+                "icon": null
+            }
+        ]
+    },
+    "metas": []
+}

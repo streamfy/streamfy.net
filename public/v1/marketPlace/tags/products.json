@@ -1,0 +1,41 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "98b85cf4-f16f-4d2d-befb-5dd28a42fe7f",
+      "title": "Title 1",
+      "slogan": "Slogan",
+      "introduction": "Introduction 1",
+      "description": "Description 1",
+      "logo": "0154034f-8922-4b81-baee-e52defdd522c.jpg",
+      "cover": "c85eabab-1e1b-405f-a9c5-06b7e86f636b.jpg",
+      "downloads": null,
+      "views": null,
+      "purchases": null,
+      "likes": null,
+      "type": "Trading Bots",
+      "status": 2,
+      "published_at": "2023-03-18 21:46:49",
+      "updated_at": "2023-03-18T21:49:19.000000Z"
+    },
+    {
+      "id": "98b85cf4-f16f-4d2d-befb-5dd28a42fe7f",
+      "title": "Title 2",
+      "slogan": "Slogan",
+      "introduction": "Introduction 2",
+      "description": "Description 2",
+      "logo": "0154034f-8922-4b81-baee-e52defdd522c.jpg",
+      "cover": "c85eabab-1e1b-405f-a9c5-06b7e86f636b.jpg",
+      "downloads": null,
+      "views": null,
+      "purchases": null,
+      "likes": null,
+      "type": "Trading Bots",
+      "status": 1,
+      "published_at": "2023-03-18 21:46:49",
+      "updated_at": "2023-03-18T21:49:19.000000Z"
+    }
+  ],
+  "metas": []
+}

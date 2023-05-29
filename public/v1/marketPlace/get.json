@@ -1,0 +1,23 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "01gv00t27dy3ayg8smyjrcmtf4",
+      "title": "first product1",
+      "slogan": "this is test",
+      "introduction": "detail of product",
+      "description": "this is description of product",
+      "logo": null,
+      "cover": null,
+      "downloads": null,
+      "views": null,
+      "purchases": null,
+      "likes": null,
+      "status": 2,
+      "published_at": "2023-03-08 07:08:45",
+      "updated_at": "2023-03-08T07:08:45.000000Z"
+    }
+  ],
+  "metas": []
+}

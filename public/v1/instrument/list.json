@@ -1,0 +1,151 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "97bf54d4-9e89-4577-9a4f-0ad30c1c9fg4",
+      "name": "test instrument",
+      "slug": "test-instrument",
+      "logo": null,
+      "description": null,
+      "sector": 12200,
+      "industry": 12300,
+      "digits": 2,
+      "contract_size": 100,
+      "spread": 12800,
+      "stops_level": 0,
+      "margin_currency": "USD",
+      "profit_currency": "USD",
+      "calculation_mode": 12500,
+      "tick_size": "0.00",
+      "tick_value": 0,
+      "chart_mode": 12600,
+      "margin_rate": {
+        "market_buy": {
+          "initial": 1,
+          "maintenance": 1
+        },
+        "market_sell": {
+          "initial": 1,
+          "maintenance": 1
+        },
+        "buy_limit": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "sell_limit": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "buy_stop": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "sell_stop": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "buy_stop_limit": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "sell_stop_limit": {
+          "initial": 0,
+          "maintenance": 0
+        },
+        "trade_mode": 12900,
+        "execution_mode": 12910,
+        "gtc_mode": 12920,
+        "filling_mode": 12930,
+        "expiration_mode": 12940,
+        "order_mode": 12950,
+        "swap_mode": 12960,
+        "minimal_volume": 0.01,
+        "maximal_volume": 40,
+        "volume_step": 0.01,
+        "swap_long": -85.83377,
+        "swap_short": 70.91623
+      },
+      "swap_rate": [
+        {
+          "day": "Monday",
+          "rate": 1
+        },
+        {
+          "day": "Tuesday",
+          "rate": 1
+        },
+        {
+          "day": "Wednesday",
+          "rate": 3
+        },
+        {
+          "day": "Thursday",
+          "rate": 1
+        },
+        {
+          "day": "Friday",
+          "rate": 1
+        }
+      ],
+      "sessions": [
+        {
+          "day": "Sunday",
+          "quote_start": null,
+          "quote_end": null,
+          "trade_start": null,
+          "trade_end": null
+        },
+        {
+          "day": "Monday",
+          "quote_start": "01:00",
+          "quote_end": "23:59",
+          "trade_start": "01:01",
+          "trade_end": "23:59"
+        },
+        {
+          "day": "Tuesday",
+          "quote_start": "01:00",
+          "quote_end": "23:59",
+          "trade_start": "01:01",
+          "trade_end": "23:59"
+        },
+        {
+          "day": "Wednesday",
+          "quote_start": "01:00",
+          "quote_end": "23:59",
+          "trade_start": "01:01",
+          "trade_end": "23:59"
+        },
+        {
+          "day": "Thursday",
+          "quote_start": "01:00",
+          "quote_end": "23:59",
+          "trade_start": "01:01",
+          "trade_end": "23:59"
+        },
+        {
+          "day": "Friday",
+          "quote_start": "01:00",
+          "quote_end": "23:58",
+          "trade_start": "01:01",
+          "trade_end": "23:58"
+        },
+        {
+          "day": "Saturday",
+          "quote_start": null,
+          "quote_end": null,
+          "trade_start": null,
+          "trade_end": null
+        }
+      ],
+      "max_leverage": 1,
+      "min_lot_size": "100.00",
+      "max_lot_size": "500.00",
+      "commission": "2.20",
+      "commission_calculation_mode": "percentage",
+      "status": 12700
+    }
+  ],
+  "metas": []
+}

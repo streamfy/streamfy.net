@@ -1,0 +1,11 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "98d83399-3b59-41c5-9373-139e304b9921",
+      "title": "server"
+    }
+  ],
+  "metas": []
+}

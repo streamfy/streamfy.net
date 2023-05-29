@@ -1,0 +1,49 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": {
+    "uuid": "98d3e94e-cd5e-4b3b-bb29-01a5b9f91d0d",
+    "name": "test name 1",
+    "company": "test company",
+    "identity": "8946511845611",
+    "trade_mode": 15201,
+    "margin_type": 15301,
+    "order_limit": 200,
+    "trade_allowed": true,
+    "hedge": true,
+    "capital_road": false,
+    "server": "test server 2",
+    "link": "https://www.icmarkets.com/mt4/download/icmarketsdemo.exe",
+    "currency": null,
+    "leverage": null,
+    "stopout_level": null,
+    "report": 0,
+    "status": 15001,
+    "balance": null,
+    "credit": null,
+    "equity": null,
+    "margin": null,
+    "free_margin": null,
+    "margin_level": null,
+    "broker": {
+      "id": "98gdc2a2-4251-4619-9bb6-3905d22ber88",
+      "name": "test",
+      "logo": null
+    },
+    "market": {
+      "id": "98d3ba85-9407-4f3e-a96f-c2201383f182",
+      "name": "Agriculture",
+      "slug": "agriculture",
+      "icon": null
+    },
+    "platforms": [
+      {
+        "id": "98d3ba85-a3c7-4d0d-b776-2325a3527811",
+        "title": "FXTrade/FXGame",
+        "slug": null,
+        "icon": null
+      }
+    ]
+  },
+  "metas": []
+}

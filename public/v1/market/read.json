@@ -1,0 +1,38 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": {
+    "id": "98bf54d4-9e89-4577-9a4f-0ad30c1c9fb7",
+    "name": "Capital Markets",
+    "slug": "capital-markets",
+    "icon": null,
+    "url": null,
+    "description": null,
+    "cover": null,
+    "status": 11300,
+    "parent_id": null,
+    "children": [
+      {
+        "id": "98bf54d4-a4b2-448c-857a-52231ee521c2",
+        "name": "Stock Market",
+        "slug": "stock-market",
+        "icon": null,
+        "url": null,
+        "description": null,
+        "cover": null,
+        "status": 11300
+      },
+      {
+        "id": "98bf54d4-a74d-4300-92de-afd3e8e6cf21",
+        "name": "Bond Market",
+        "slug": "bond-market",
+        "icon": null,
+        "url": null,
+        "description": null,
+        "cover": null,
+        "status": 11300
+      }
+    ]
+  },
+  "metas": []
+}

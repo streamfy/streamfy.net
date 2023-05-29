@@ -1,0 +1,41 @@
+{
+  "name": "trader4-landing-app",
+  "private": true,
+  "version": "1.0.0-alpha.4",
+  "author": "trader4",
+  "scripts": {
+    "build": "npm run build-submodules && nuxt build",
+    "dev": "nuxt dev",
+    "dev:next": "nuxt dev --dotenv .env.staging",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "build-submodules": "cd base-layers && npm i && npm run build"
+  },
+  "devDependencies": {
+    "@nuxt/content": "^2.6.0",
+    "@nuxt/devtools": "^0.4.0",
+    "@nuxt/image-edge": "^1.0.0-28059208.2abef1b",
+    "@nuxtjs/color-mode": "^3.2.0",
+    "@nuxtjs/i18n": "8.0.0-beta.10",
+    "@nuxtjs/tailwindcss": "^6.6.5",
+    "nuxt": "^3.4.1",
+    "nuxt-icon": "^0.3.3"
+  },
+  "dependencies": {
+    "@nuxt-themes/docus": "^1.11.1",
+    "@tinymce/tinymce-vue": "^5.1.0",
+    "@traderfour/api-ts": "^1.0.0-alpha.1",
+    "@vee-validate/nuxt": "^4.8.6",
+    "@vueuse/core": "^10.1.2",
+    "@werify/id-ts": "^1.2.0",
+    "filepond": "^4.30.4",
+    "filepond-plugin-file-validate-size": "^2.2.8",
+    "filepond-plugin-file-validate-type": "^1.2.8",
+    "filepond-plugin-image-preview": "^4.6.11",
+    "flowbite": "^1.6.5",
+    "vue-filepond": "^7.0.3",
+    "vue-json-pretty": "^2.2.4",
+    "yup": "^1.1.1"
+  }
+}

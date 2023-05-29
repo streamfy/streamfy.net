@@ -1,0 +1,22 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "98b7b4a4-4fbe-436a-8712-fe08de6708db",
+      "title": "Platform 1",
+      "slug": null
+    },
+    {
+      "id": "98b7b4ae-f0c6-495b-bc42-7e3773e2f748",
+      "title": "Platform 2",
+      "slug": null
+    },
+    {
+      "id": "98b7b4b5-1808-49ae-86ba-cbc942903f13",
+      "title": "Platform 3",
+      "slug": null
+    }
+  ],
+  "metas": []
+}
