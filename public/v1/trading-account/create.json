@@ -1,0 +1,49 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": {
+    "uuid": "98d74efb-0d3b-41a7-a5be-36ffc052dbe4",
+    "name": "test1 name",
+    "company": null,
+    "identity": "8946511845611",
+    "trade_mode": null,
+    "margin_type": null,
+    "order_limit": null,
+    "trade_allowed": null,
+    "hedge": null,
+    "capital_road": null,
+    "server": "test server",
+    "link": "https://www.icmarkets.com/mt4/download/icmarketsdemo.exe",
+    "currency": null,
+    "leverage": null,
+    "stopout_level": null,
+    "report": null,
+    "status": 15001,
+    "balance": null,
+    "credit": null,
+    "equity": null,
+    "margin": null,
+    "free_margin": null,
+    "margin_level": null,
+    "broker": {
+      "id": "98gdc2a2-4251-4619-9bb6-3905d22ber88",
+      "name": "test",
+      "logo": null
+    },
+    "market": {
+      "id": "98d3ba85-9407-4f3e-a96f-c2201383f182",
+      "name": "Agriculture",
+      "slug": "agriculture",
+      "icon": null
+    },
+    "platforms": [
+      {
+        "id": "98d3ba85-abf8-43e0-a460-031907ef7b56",
+        "title": "Oanda",
+        "slug": null,
+        "icon": null
+      }
+    ]
+  },
+  "metas": []
+}

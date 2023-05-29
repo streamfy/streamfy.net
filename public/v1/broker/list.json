@@ -1,0 +1,27 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "98gdc2a2-4251-4619-9bb6-3905d22ber39",
+      "market_id": "98bf54d4-9e89-4577-9a4f-0ad30c1c9fb7",
+      "name": "test name",
+      "logo": null,
+      "website": null,
+      "description": "test description",
+      "is_dealing_desk": true,
+      "is_stp": false,
+      "is_ecn": false,
+      "is_market_maker": true,
+      "is_ndd": false,
+      "is_dma": false,
+      "is_prime_of_prime": false,
+      "has_swap_free": false,
+      "has_demo_account": false,
+      "has_mobile_trading": true,
+      "has_web_trading": true,
+      "status": 11400
+    }
+  ],
+  "metas": []
+}

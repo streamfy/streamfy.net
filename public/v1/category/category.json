@@ -1,0 +1,79 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "989d91a8-a031-414b-9516-162f04701293",
+      "title": "Scalping",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a150-482d-b0e6-37c73087bfe4",
+      "title": "Day Trading",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a255-4b4e-8c7c-ed94a442f768",
+      "title": "Momentum",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a363-4059-bc24-955690410759",
+      "title": "Technical",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a46a-4607-a277-30ee3b42478b",
+      "title": "Fundamental",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a572-46c7-abbc-96e46ed7e448",
+      "title": "Technomental",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a678-450a-983a-3a03a7fc16b1",
+      "title": "Mean Reversion",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a77b-4936-ba84-802a64272374",
+      "title": "Swing",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-a875-4384-a74c-7c40047980e1",
+      "title": "Positioning",
+      "slug": null,
+      "type": 13000
+    },
+    {
+      "id": "989d91a8-ad6a-4708-99a2-15379edc636f",
+      "title": "Real",
+      "slug": null,
+      "type": 13009
+    },
+    {
+      "id": "989d91a8-aeb1-489a-9034-8d2f9a7eb3e5",
+      "title": "One Challenge",
+      "slug": null,
+      "type": 13009
+    },
+    {
+      "id": "989d91a8-afca-4f9d-aaf3-dccc76f13f17",
+      "title": "Two Challenge",
+      "slug": null,
+      "type": 13009
+    }
+  ],
+  "metas": []
+}

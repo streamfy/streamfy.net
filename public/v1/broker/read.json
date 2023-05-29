@@ -1,0 +1,182 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": {
+    "id": "98gdc2a2-4251-4619-9bb6-3905d22ber39",
+    "market_id": "98bf54d4-9e89-4577-9a4f-0ad30c1c9fb7",
+    "name": "test name",
+    "logo": null,
+    "website": null,
+    "description": "test description",
+    "is_dealing_desk": true,
+    "is_stp": false,
+    "is_ecn": false,
+    "is_market_maker": true,
+    "is_ndd": false,
+    "is_dma": false,
+    "is_prime_of_prime": false,
+    "country": "USA,GBR",
+    "offices": [
+      {
+        "country": "USA",
+        "city": "New York City",
+        "address": "test address",
+        "phones": [
+          "1556225845",
+          "1556225846"
+        ]
+      },
+      {
+        "country": "USA",
+        "city": "Washington, D.C.",
+        "address": "test address",
+        "phones": [
+          "1556225850",
+          "1556225851"
+        ]
+      }
+    ],
+    "regulations": [
+      {
+        "name": "JSC",
+        "registered_company": "Admiral Markets AS Jordan Ltd",
+        "registered_office": "first floor, Time Centre Building, Eritrea Street, Um Uthaina, Amman, Jordan",
+        "license": "57026",
+        "company_registered_number":"85275",
+        "description": "test description"
+      },
+      {
+        "name": "FCA",
+        "registered_company": "Admiral Markets UK Ltd",
+        "registered_office": "37th Floor, One Canada Square, Canary Wharf, London, E14 5AB, United Kingdom.",
+        "license": "595450",
+        "company_registered_number":"98564",
+        "description": "test description"
+      }
+    ],
+    "us_clients": true,
+    "account_currencies": "USD,GBP",
+    "funding_methods": [
+      {
+        "currency": "EUR",
+        "fee": {
+          "deposit": 0,
+          "calculation_mode": "percentage"
+        },
+        "processing_time": {
+          "deposit": 72,
+          "calculation_mode": "hours"
+        },
+        "limitations": {
+          "deposit": {
+            "min": 500,
+            "max": 100000,
+            "calculation_mode": "EUR"
+          }
+        }
+      }
+    ],
+    "withdrawal_methods": [
+      {
+        "currency": "EUR",
+        "fee": {
+          "withdraw": 1.5,
+          "calculation_mode": "percentage"
+        },
+        "processing_time": {
+          "withdraw": 72,
+          "calculation_mode": "hours"
+        },
+        "limitations": {
+          "withdraw": {
+            "min": 500,
+            "max": 49990,
+            "calculation_mode": "EUR"
+          }
+        }
+      }
+    ],
+    "has_swap_free": false,
+    "has_demo_account": false,
+    "has_segregated_account": true,
+    "interest_on_margin": false,
+    "has_managed_account": false,
+    "money_managers": [
+      {
+        "name": "PAMM",
+        "description": "test description"
+      },
+      {
+        "name": "MAM",
+        "description": "test description"
+      },
+      {
+        "name": "RAMM",
+        "description": "test description"
+      },
+      {
+        "name": "MAMM",
+        "description": "test description"
+      },
+      {
+        "name": "COPY_TRADE",
+        "description": "test description"
+      },
+      {
+        "name": "SOCIAL_TRADE",
+        "description": "test description"
+      }
+    ],
+    "phone": "4485651355",
+    "fax": "448562652225",
+    "email": "test@traser4.net",
+    "languages": "en-US",
+    "availability": [
+      {
+        "name": "skype",
+        "numbers": [
+          "448562652225",
+          "4485651355"
+        ]
+      },
+      {
+        "name": "whatsapp",
+        "numbers": [
+          "448562652225",
+          "4485651355"
+        ]
+      }
+    ],
+    "has_mobile_trading": true,
+    "has_web_trading": true,
+    "has_api": false,
+    "has_socket": false,
+    "has_oco_orders": false,
+    "allow_hedge": false,
+    "has_trailing_stops": true,
+    "has_one_click_trading": true,
+    "has_bonus": false,
+    "has_contests": false,
+    "has_stocks": false,
+    "has_options": false,
+    "has_futures": false,
+    "has_indices": false,
+    "has_commodities": false,
+    "has_energies": false,
+    "has_shares": true,
+    "has_spread_betting": false,
+    "has_cfd": false,
+    "has_cryptocurrencies": false,
+    "minimum_deposit": [],
+    "maximal_leverage": [],
+    "minimum_lot_size": [],
+    "maximal_lot_size": [],
+    "commission": [],
+    "spread": 11500,
+    "five_decimals": false,
+    "allow_scalping": true,
+    "allow_super_scalping": false,
+    "status": 11400
+  },
+  "metas": []
+}

@@ -1,0 +1,21 @@
+{
+  "succeed": true,
+  "message": "The data has been successfully updated",
+  "results": {
+    "id": "01gv00t27dy3ayg8smyjrcmtf4",
+    "title": "product2",
+    "slogan": "test2",
+    "introduction": "test2",
+    "description": "test2",
+    "logo": null,
+    "cover": null,
+    "downloads": null,
+    "views": null,
+    "purchases": null,
+    "likes": null,
+    "status": 2,
+    "published_at": "2023-03-08 07:08:45",
+    "updated_at": "2023-03-08T08:13:11.000000Z"
+  },
+  "metas": []
+}

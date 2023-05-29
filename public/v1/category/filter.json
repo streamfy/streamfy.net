@@ -1,0 +1,13 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": [
+    {
+      "id": "989d91a8-a031-414b-9516-162f04701293",
+      "title": "Scalping",
+      "slug": null,
+      "type": 13000
+    }
+  ],
+  "metas": []
+}

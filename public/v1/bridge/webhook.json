@@ -1,0 +1,15 @@
+{
+  "succeed": true,
+  "message": "Response successfully returned",
+  "results": {
+    "app_key": "98b9d304-5132-4bf8-b491-cce462a1803b",
+    "order": "OP_SELL",
+    "instrument": "XAUUSD",
+    "stop_loss": "1.234",
+    "target_price": "1.378",
+    "risk": "3",
+    "risk_mode": "balance",
+    "trading_account": null
+  },
+  "metas": []
+}
