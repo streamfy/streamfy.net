@@ -14,7 +14,7 @@
               class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th
-                  v-for="key in Object.keys(data.results[0])"
+                  v-for="(key, index) in Object.keys(data.results[0])"
                   scope="col"
                   class="p-4">
                   {{ key }}
@@ -964,14 +964,14 @@ const data = ref({
     total: 10,
   },
 });
-const activeIndex = ref(1);
+const activeIndex = ref(data.value.metas.current_page);
 const nextPage = () => {
   if (activeIndex.value < data.value.metas.total) {
     activeIndex.value++;
   }
 };
 const previousPage = () => {
-  if (activeIndex.value > data.value.metas.from) {
+  if (activeIndex.value > 1) {
     activeIndex.value--;
     console.log(activeIndex.value);
   }
