@@ -19,6 +19,8 @@ RUN npm cache clean --force
 ADD . .
 
 # Build project
+RUN npm run build
+
 RUN npm run generate
 
 # nginx production environment
