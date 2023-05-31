@@ -19,10 +19,21 @@ RUN npm cache clean --force
 ADD . .
 
 # Build project
-RUN npm run build
+RUN npm run generate
+
+# nginx production environment
+FROM nginx:stable-alpine AS deploy
+
+WORKDIR /usr/src/app
+
+# Copy build directory
+COPY --from=build /usr/src/app/dist /usr/share/nginx/html
+
+# copy nginx confiuration file
+COPY .ci/nginx.conf /etc/nginx/conf.d/default.conf
 
 # expose port 80
-EXPOSE 3000
+EXPOSE 80
 
 # Run nginx
-CMD ["node", ".output/server/index.mjs"]
+CMD ["nginx", "-g", "daemon off;"]
