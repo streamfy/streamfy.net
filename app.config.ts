@@ -1,3 +1,23 @@
+interface IAppConfig {
+  nuxtIcon: {
+    size?: string;
+    aliases?: {
+      [key: string]: string;
+    };
+  };
+  config: {
+    layout: {
+      container: boolean;
+    };
+    header: IHeader;
+    footer: IFooter;
+    announcement: IAnnouncement;
+    appsMenu: IAppMenu[];
+    appCompanyMegaMenu: IAppCompanyMegaMenu;
+    userAvatarMenu: IUserAvatarMenu;
+  };
+}
+
 interface IHeader {
   logo: string;
   darkLogo: string;
@@ -5,9 +25,18 @@ interface IHeader {
     title: string;
     link: string;
   }[];
+  subnavLinks?: {
+    icon: string;
+    title: string;
+    link: string;
+  }[];
   megaMenu: boolean | string[];
+  hideSubnavLink?: boolean;
   hideSearchBar: boolean;
   hideLanguageSelector: boolean;
+  hideNotifications: boolean;
+  hideappMenu: boolean;
+  hideUserInfo: boolean;
   languageList: {
     lang: string;
     flagSrc: string;
@@ -35,67 +64,74 @@ interface IFooter {
   copyRight: string;
   partOf: string;
   emailAPI: string;
+  hideEmailBox: boolean;
   socials: {
     icon: string;
     link: string;
   }[];
 }
+interface IAppCompanyMegaMenu {
+  plans: Plan[];
+  catergories: Category[];
+}
+
+interface Plan {
+  title: string;
+  description: string;
+  icon: string;
+  link: string;
+}
+
+interface Category {
+  title: string;
+  link: string;
+}
+interface IAnnouncement {
+  title: string;
+  badge: string;
+  link: ILink;
+}
+interface ILink {
+  text: string;
+  src: string;
+}
+interface IAppMenu {
+  iconName: string;
+  iconTitle: string;
+  link: string;
+}
+interface IUserAvatarMenu {
+  accountLinks: AccountLink[];
+}
+interface AccountLink {
+  title: string;
+  link: string;
+}
 export default defineAppConfig({
-  docus: {
-    title: 'Trader4 Documentation',
-    description: 'Trader4 Docs',
-    url: 'http://trader4.net/docs',
-    image: '/social-card-preview.png',
-    socials: {
-      twitter: '@trader4',
-      github: 'traderfour',
+  nuxtIcon: {
+    // Default size
+    // size: '2em',
+    aliases: {
+      nuxt: "NuxtIcon",
     },
   },
   config: {
+    layout: {
+      container: true,
+    },
     header: {
-      logo: "/img/h-logo.svg",
-      darkLogo: "/img/h-logo-dark.svg",
-      menu: [
-        { title: "Pricing", link: "/pricing" },
-        { title: "Help", link: "/help" },
-      ],
-      megaMenu: false,
+      logo: "/img/briofy.png",
+      darkLogo: "/img/briofy.png",
+      menu: [],
+      megaMenu: true,
       hideSearchBar: false,
       hideLanguageSelector: false,
-      languageList: [
-        {
-          lang: "en",
-          flagSrc: "/img/icon/en.svg",
-          text: "English",
-        },
-        {
-          lang: "fa",
-          flagSrc: "/img/icon/ir.svg",
-          text: "فارسی",
-        },
-        {
-          lang: "ar",
-          flagSrc: "/img/icon/ar.svg",
-          text: "العربية",
-        },
-        {
-          lang: "tr",
-          flagSrc: "/img/icon/tr.svg",
-          text: "Türkçe",
-        },
-        {
-          lang: "de",
-          flagSrc: "/img/icon/tr.svg",
-          text: "Deutsch",
-        },
-        {
-          lang: "es",
-          flagSrc: "/img/icon/tr.svg",
-          text: "Español",
-        },
-
-      ],
+      languageList: [],
       hideThemeSelector: false,
+      hideNotifications: false,
+      hideappMenu: false,
+      hideSubnavLink: false,
+      hideUserInfo: false,
       loginButton: {
         title: "Login",
         hideLoginButton: false,
@@ -106,124 +142,124 @@ export default defineAppConfig({
     } as IHeader,
 
     footer: {
-      logo: "/img/h-logo.svg",
-      darkLogo: "/img/h-logo-dark.svg",
+      logo: "/img/briofy.png",
+      darkLogo: "/img/briofy.png",
+      footerLinks: [],
       hideEmailBox: false,
       emailAPI: "https://api.briofy.net/api/Email/ContactUs",
       copyRight: `<span>© 2017-2023
                           <a href="https://trader4.net" class="hover:underline">Trader4</a>.
                           All Rights Reserved.</span
                         >`,
-      partOf: `<p>
-      Proudly Part Of
+      partOf: `<p> Proudly Part Of
       <a
         href="https://briofy.net"
         target="_blank"
         rel="external"
         class="hover:underline font-semibold"
-        >Briofy</a
-      >
-      Family
-    </p>`,
-      socials: [
-        {
-          icon: "mdi:linkedin",
-          link: "https://www.linkedin.com/company/trader4/",
-        },
-        {
-          icon: "mdi:youtube",
-          link: "https://www.youtube.com/@traderfour",
-        },
-        {
-          icon: "mdi:github",
-          link: "https://github.com/traderfour",
-        },
-      ],
-      footerLinks: [
-        {
-          title: "Quick Access",
-          links: [
-            { title: "About", link: "/about" },
-            { title: "Contact", link: "/contact" },
-            { title: "Pricing", link: "/pricing" },
-            { title: "Newsroom", link: "/blog/news-room" },
-            { title: "Blog", link: "/blog" },
-            { title: "Careers", link: "/careers" },
-            { title: "Privacy Policy", link: "/privacy" },
-            { title: "Cookies Policy", link: "/cookies" },
-            { title: "Terms Of Service", link: "/terms" },
-          ],
-        },
-        {
-          title: "Products",
-          links: [
-            { title: "Market", link: "/product/market" },
-            { title: "Bridge", link: "/product/bridge" },
-            { title: "Bazaar", link: "/product/bazaar" },
-            { title: "Financial Engineering", link: "/product/financial-engineering" },
-            { title: "Marketplace", link: "/product/marketplace" },
-            { title: "Algo Trading", link: "/product/algo-trading" },
-            { title: "Cloud Trading", link: "/product/cloud-trading" },
-            { title: "Trading Framework", link: "/product/trading-framework" },
-            { title: "License System", link: "/product/license-system" },
-          ],
-        },
-        {
-            links: [
-              { title: "Portfolio", link: "/product/portfolio" },
-              { title: "TradeHub", link: "/product/tradehub" },
-              { title: "ChartHub", link: "/product/charthub" },
-              { title: "Team Trading", link: "/product/team-trading" },
-              { title: "Pythia", link: "/product/pythia" },
-              { title: "Open API", link: "/product/open-api" },
-              { title: "Laboratory", link: "/product/laboratory" },
-            ]
-        },
-        {
-          title: "Support",
-          links: [
-            { title: "F.A.Q", link: "/faq" },
-            { title: "Documentation", link: "/documentation" },
-            { title: "How To", link: "/how-to" },
-            { title: "API Docs", link: "/docs/api" },
-            {
-              title: "Status System",
-              link: "https://status.trader4.net",
-              target: "_blank",
-            },
-            { title: "Use Cases", link: "/use-cases" },
-            { title: "Brand Book", link: "/brand-book" },
-            { title: "DMCA", link: "/dmca" },
-            { title: "Do Not Sell My Info", link: "/do-not-sell-my-info" },
-          ],
-        },
-        {
-          title: "More",
-          links: [
-            { title: "Download Android", link: "/mobile/android" },
-            { title: "Download iOS", link: "/mobile/ios" },
-            { title: "Think and Grow Rich", link: "/think-and-grow-rich" },
-            { title: "Rich Dad Poor Dad", link: "/rich-dad-poor-dad" },
-            { title: "Open Source", link: "/open-source" },
-            { title: "#trader4", link: "/hashtag-trader4" },
-            { title: "Bug Bounty", link: "/bug-bounty" },
-            { title: "Disclaimer", link: "/disclaimer" },
-            { title: "CSR", link: "/csr" },
-          ],
-        },
-        {
-          title: "From Family",
-          links: [
-            { title: "Dalan Capital", link: "https://dalan.capital", target: "_blank" },
-            { title: "Werify", link: "https://werify.net", target: "_blank" },
-            { title: "Bulutly", link: "https://bulutly.net", target: "_blank" },
-            { title: "AzPays", link: "https://azpays.net", target: "_blank" },
-            { title: "Pasles", link: "https://pasles.net", target: "_blank" },
-            { title: "Daric", link: "https://daric.vc", target: "_blank" },
-            { title: "More from Briofy", link: "https://briofy.net/products", target: "_blank"},
-          ],
-        },
-      ],
+        >Briofy</a> Family </p>`,
+      socials: [],
     } as IFooter,
+    announcement: {
+      title: "Hello ! here is the announcement test from the Trader4",
+      badge: "new",
+      link: {
+        text: "Homepage",
+        src: "/",
+      },
+    } as IAnnouncement,
+    appsMenu: [
+      {
+        iconName: "mdi-shopping",
+        iconTitle: "Sales",
+        link: "#",
+      },
+      {
+        iconName: "mdi-account-group",
+        iconTitle: "Users",
+        link: "#",
+      },
+      {
+        iconName: "mdi-inbox",
+        iconTitle: "Inbox",
+        link: "#",
+      },
+      {
+        iconName: "mdi-account-circle",
+        iconTitle: "Profile",
+        link: "#",
+      },
+      {
+        iconName: "mdi-cog",
+        iconTitle: "Settings",
+        link: "#",
+      },
+      {
+        iconName: "mdi-bitbucket",
+        iconTitle: "Products",
+        link: "#",
+      },
+      {
+        iconName: "mdi-currency-usd-circle",
+        iconTitle: "Pricing",
+        link: "#",
+      },
+      { iconName: "mdi-percent-box", iconTitle: "Billing", link: "#" },
+      {
+        iconName: "mdi-logout-variant",
+        iconTitle: "Logout",
+        link: "#",
+      },
+    ] as IAppMenu[],
+    appCompanyMegaMenu: {
+      plans: [
+        {
+          title: "Explore Design Work",
+          description: "Trending designs to inspire you",
+          icon: "mdi-folder-search",
+          link: "#",
+        },
+        {
+          title: "New & Noteworthy",
+          description: "Up-and-coming designers",
+          icon: "mdi-fire",
+          link: "#",
+        },
+        {
+          title: "Playoffs",
+          description: "Work designers are riffing on",
+          icon: "mdi-folder-multiple",
+          link: "#",
+        },
+        {
+          title: "Blog",
+          description: "Interviews, tutorials, and more",
+          icon: "mdi-cast",
+          link: "#",
+        },
+        {
+          title: "Weekly Warm-up",
+          description: "Prompt to flex your skills",
+          icon: "mdi-calendar",
+          link: "#",
+        },
+      ],
+
+      catergories: [
+        { title: "Animation", link: "#" },
+        { title: "Branding", link: "#" },
+        { title: "Illustration", link: "#" },
+        { title: "Mobile", link: "#" },
+        { title: "Print", link: "#" },
+        { title: "Product Design", link: "#" },
+        { title: "Web Design", link: "#" },
+      ],
+    } as IAppCompanyMegaMenu,
+    userAvatarMenu: {
+      accountLinks: [
+        { title: "My profile", link: "#" },
+        { title: "Account settings", link: "#" },
+      ],
+    } as IUserAvatarMenu,
   },
 });
