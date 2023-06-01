@@ -1,7 +1,7 @@
 import { werify } from "@werify/id-ts";
 
 export const useAuth = async () => {
-  const baseURL = useRuntimeConfig().public.baseUrl;
+  const baseURL = "https://id.werify.net";
 
   const auth = werify();
   auth.config.baseURL = baseURL;

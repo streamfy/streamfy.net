@@ -1,101 +1,185 @@
-<script lang="ts" setup></script>
 <template>
   <section
     class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 antialiased rounded my-5 py-5">
-    <div class="mx-auto max-w-screen-2xl">
+    <div
+      class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded overflow-hidden">
+      <ProductsFilter />
       <div
-        class="bg-white dark:bg-gray-800 relative shadow-md sm:rounded overflow-hidden">
-        <ProductsFilter />
-
-        <div class="overflow-x-auto">
-          <table
-            class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <thead
-              class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-              <tr>
-                <th
-                  v-for="(key, index) in Object.keys(data.results[0])"
-                  scope="col"
-                  class="p-4">
-                  {{ key }}
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr
-                v-for="tableData in data.results"
-                class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-                <td v-for="item in Object.values(tableData)" class="p-4 w-4">
-                  <div class="flex items-center">
-                    {{ item }}
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        v-if="showToast"
+        id="toast-danger"
+        class="flex fixed right-5 bottom-3 z-50 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-gray-100 rounded-lg shadow dark:text-gray-400 dark:bg-gray-900"
+        role="alert">
+        <div
+          class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-red-500 bg-red-100 rounded-lg dark:bg-red-800 dark:text-red-200">
+          <Icon name="mdi-alert-circle-outline" class="w-5 h-5" />
+          <span class="sr-only">Error icon</span>
         </div>
-        <nav
-          class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
-          aria-label="Table navigation">
-          <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
-            Showing
-            <span class="font-semibold text-gray-900 dark:text-white"
-              >{{ data.metas.current_page }}-{{ data.metas.per_page }}</span
-            >
-            of
-            <span class="font-semibold text-gray-900 dark:text-white">{{
-              data.metas.total
-            }}</span>
-          </span>
-          <ul class="inline-flex items-stretch -space-x-px">
-            <li @click="previousPage">
-              <a
-                href="#"
-                class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                <span class="sr-only">Previous</span>
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewbox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-              </a>
-            </li>
-
-            <li @click="toggleActive(i)" v-for="i in data.metas.total">
-              <a
-                href="#"
-                class="flex items-center justify-center text-sm py-2 px-3 text-gray-500 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                :class="activeIndex == i ? 'bg-gray-100' : 'bg-white'"
-                >{{ i }}</a
-              >
-            </li>
-            <li @click="nextPage">
-              <a
-                href="#"
-                class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-                <span class="sr-only">Next</span>
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewbox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd" />
-                </svg>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="ml-3 text-sm font-normal">Error</div>
+        <button
+          @click="removeToast"
+          type="button"
+          class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
+          data-dismiss-target="#toast-danger"
+          aria-label="Close">
+          <span class="sr-only">Close</span>
+          <svg
+            aria-hidden="true"
+            class="w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"></path>
+          </svg>
+        </button>
       </div>
+      <div
+        v-if="loading"
+        role="status"
+        class="max-w-screen-2xl p-4 space-y-4 border-gray-200 divide-y divide-gray-200 animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700">
+        <div class="flex items-center justify-between">
+          <div>
+            <div
+              class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+            <div
+              class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          </div>
+          <div
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div class="flex items-center justify-between pt-4">
+          <div>
+            <div
+              class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+            <div
+              class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          </div>
+          <div
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div class="flex items-center justify-between pt-4">
+          <div>
+            <div
+              class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+            <div
+              class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          </div>
+          <div
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div class="flex items-center justify-between pt-4">
+          <div>
+            <div
+              class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+            <div
+              class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          </div>
+          <div
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <div class="flex items-center justify-between pt-4">
+          <div>
+            <div
+              class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
+            <div
+              class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
+          </div>
+          <div
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+        </div>
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div class="overflow-x-auto" v-if="!loading">
+        <table
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+          <thead
+            class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th
+                v-for="(key, index) in Object.keys(data.results[0])"
+                scope="col"
+                class="p-4">
+                {{ key }}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="tableData in data.results"
+              class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+              <td v-for="item in Object.values(tableData)" class="p-4 w-4">
+                <div class="flex items-center">
+                  {{ item }}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <nav
+        class="flex flex-col md:flex-row justify-between items-start md:items-center space-y-3 md:space-y-0 p-4"
+        aria-label="Table navigation">
+        <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
+          Showing
+          <span class="font-semibold text-gray-900 dark:text-white"
+            >{{ data.metas.current_page }}-{{ data.metas.per_page }}</span
+          >
+          of
+          <span class="font-semibold text-gray-900 dark:text-white">{{
+            data.metas.total
+          }}</span>
+        </span>
+        <ul class="inline-flex items-stretch -space-x-px">
+          <li @click="previousPage">
+            <a
+              href="#"
+              class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <span class="sr-only">Previous</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                fill="currentColor"
+                viewbox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </li>
+
+          <li @click="toggleActive(i)" v-for="i in data.metas.total">
+            <a
+              href="#"
+              class="flex items-center justify-center text-sm py-2 px-3 text-gray-500 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              :class="activeIndex == i ? 'bg-gray-100' : 'bg-white'"
+              >{{ i }}</a
+            >
+          </li>
+          <li @click="nextPage">
+            <a
+              href="#"
+              class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+              <span class="sr-only">Next</span>
+              <svg
+                class="w-5 h-5"
+                aria-hidden="true"
+                fill="currentColor"
+                viewbox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clip-rule="evenodd" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </section>
   <!-- End block -->
@@ -934,8 +1018,64 @@
 </template>
 <script setup lang="ts">
 const store = useProjectStore();
+const loading = ref(false);
 const data = ref({
   results: [
+    {
+      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
+      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
+      title: "new proj",
+      description: "this is description of project",
+      logo: null,
+      url: null,
+      webhook_url: null,
+      is_public: false,
+      status: 10000,
+    },
+    {
+      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
+      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
+      title: "new proj",
+      description: "this is description of project",
+      logo: null,
+      url: null,
+      webhook_url: null,
+      is_public: false,
+      status: 10000,
+    },
+    {
+      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
+      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
+      title: "new proj",
+      description: "this is description of project",
+      logo: null,
+      url: null,
+      webhook_url: null,
+      is_public: false,
+      status: 10000,
+    },
+    {
+      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
+      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
+      title: "new proj",
+      description: "this is description of project",
+      logo: null,
+      url: null,
+      webhook_url: null,
+      is_public: false,
+      status: 10000,
+    },
+    {
+      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
+      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
+      title: "new proj",
+      description: "this is description of project",
+      logo: null,
+      url: null,
+      webhook_url: null,
+      is_public: false,
+      status: 10000,
+    },
     {
       uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
       key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
@@ -964,6 +1104,10 @@ const data = ref({
     total: 10,
   },
 });
+const showToast = ref(false);
+const removeToast = () => {
+  showToast.value = false;
+};
 const activeIndex = ref(data.value.metas.current_page);
 const nextPage = () => {
   if (activeIndex.value < data.value.metas.total) {
@@ -978,6 +1122,17 @@ const previousPage = () => {
 };
 const fetchTable = (page: number) => {
   console.log(page);
+  loading.value = true;
+  store
+    .getProjects()
+    .then((res) => {
+      loading.value = false;
+      console.log(res);
+    })
+    .catch((err) => {
+      // showToast.value = true;
+      console.log(err);
+    });
 };
 const toggleActive = (page: number) => {
   activeIndex.value = page;

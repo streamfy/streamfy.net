@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@nuxt-themes/docus": "^1.11.1",
-    "@streamfy/my-ts": "^1.0.0-alpha.1",
+    "@streamfy/my-ts": "^1.0.0-alpha.2",
     "@tinymce/tinymce-vue": "^5.1.0",
     "@vee-validate/nuxt": "^4.8.6",
     "@vueuse/core": "^10.1.2",
