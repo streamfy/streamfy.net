@@ -3,21 +3,17 @@
     <section class="bg-gray-50 dark:bg-gray-900">
       <div class="grid py-10 mx-auto lg:py-16 grid-cols-12 items-center">
         <div
-          class="lg:col-span-6 col-span-full md:max-w-lg w-full mx-auto rounded"
-        >
+          class="lg:col-span-6 col-span-full md:max-w-lg w-full mx-auto rounded">
           <div
-            class="p-6 space-y-4 bg-white dark:bg-transparent lg:space-y-6 sm:p-8"
-          >
+            class="p-6 space-y-4 bg-white dark:bg-transparent lg:space-y-6 sm:p-8">
             <h1
-              class="text-xl font-bold leading-tight tracking-tight text-gray-900 sm:text-2xl dark:text-white"
-            >
+              class="text-xl font-bold leading-tight tracking-tight text-gray-900 sm:text-2xl dark:text-white">
               Confirm Code
             </h1>
             <VForm
               class="space-y-4 lg:space-y-6"
               @submit="loginUser"
-              :validation-schema="schema"
-            >
+              :validation-schema="schema">
               <p v-if="responseMsg" :class="responseStatus">
                 {{ responseMsg }}
               </p>
@@ -34,21 +30,18 @@
                   id="code"
                   placeholder="For Example, 413850"
                   autofocus
-                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded outline-none focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                />
+                  class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded outline-none focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                 <VErrorMessage class="text-red-700 text-sm" name="code" />
               </div>
               <button
                 :disabled="loadingDisabled"
                 type="submit"
-                class="w-full text-white !bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:!bg-gray-500 disabled:cursor-not-allowed"
-              >
+                class="w-full text-white !bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:!bg-gray-500 disabled:cursor-not-allowed">
                 <Icon
                   v-if="loadingDisabled"
                   class="animate-spin"
                   size="1.5rem"
-                  name="mdi:loading"
-                />
+                  name="mdi:loading" />
                 <span v-else>Sign in</span>
               </button>
             </VForm>
@@ -57,8 +50,7 @@
         <div class="lg:col-span-6 lg:flex hidden justify-center">
           <img
             src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/authentication/illustration.svg"
-            alt="illustration"
-          />
+            alt="illustration" />
         </div>
       </div>
     </section>
@@ -90,7 +82,7 @@ const loginUser = async () => {
   // Verify OTP WERIFY
   const { auth } = await useAuth();
   auth
-    .verifyOTP(OTPPayload, "/v1/account/verify-otp")
+    .verifyOTP(OTPPayload, "/accounts/verify-otp")
     .then((res) => {
       if (res.succeed) {
         localStorage.removeItem("OTPPayload");
