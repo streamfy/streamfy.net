@@ -40,81 +40,92 @@
         role="status"
         class="max-w-screen-2xl p-4 space-y-4 border-gray-200 divide-y divide-gray-200 animate-pulse dark:divide-gray-700 md:p-6 dark:border-gray-700">
         <div class="flex items-center justify-between">
-          <div>
+          <div class="ms-20">
             <div
               class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div
               class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           </div>
           <div
-            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12 me-20"></div>
         </div>
         <div class="flex items-center justify-between pt-4">
-          <div>
+          <div class="ms-20">
             <div
               class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div
               class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           </div>
           <div
-            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12 me-20"></div>
         </div>
         <div class="flex items-center justify-between pt-4">
-          <div>
+          <div class="ms-20">
             <div
               class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div
               class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           </div>
           <div
-            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12 me-20"></div>
         </div>
         <div class="flex items-center justify-between pt-4">
-          <div>
+          <div class="ms-20">
             <div
               class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div
               class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           </div>
           <div
-            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12 me-20"></div>
         </div>
         <div class="flex items-center justify-between pt-4">
-          <div>
+          <div class="ms-20">
             <div
               class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-600 w-24 mb-2.5"></div>
             <div
               class="w-32 h-2 bg-gray-200 rounded-full dark:bg-gray-700"></div>
           </div>
           <div
-            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12"></div>
+            class="h-2.5 bg-gray-300 rounded-full dark:bg-gray-700 w-12 me-20"></div>
         </div>
         <span class="sr-only">Loading...</span>
       </div>
 
-      <div class="overflow-x-auto" v-if="!loading">
+      <div class="overflow-x-auto">
         <table
           class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
           <thead
             class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th
-                v-for="(key, index) in Object.keys(data.results[0])"
+                v-for="(key, index) in Object.keys(data)"
                 scope="col"
                 class="p-4">
                 {{ key }}
               </th>
             </tr>
           </thead>
-          <tbody>
-            <tr
-              v-for="tableData in data.results"
-              class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
-              <td v-for="item in Object.values(tableData)" class="p-4 w-4">
-                <div class="flex items-center">
-                  {{ item }}
-                </div>
-              </td>
+          <tbody class="relative h-24" v-if="!loading">
+            <template v-if="data > 0">
+              <tr
+                v-for="tableData in data"
+                class="border-b dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700">
+                <td v-for="item in Object.values(tableData)" class="p-4 w-4">
+                  <div class="flex items-center">
+                    {{ item }}
+                  </div>
+                </td>
+              </tr>
+            </template>
+            <tr v-if="data == 0">
+              <ul
+                class="absolute w-full max-h-40 mb-5 rounded overflow-y-auto py-1 hover:bg-gray-100 dark:hover:bg-gray-700 dark:bg-gray-700 bg-white">
+                <li
+                  class="px-3 py-1 text-sm text-gray-700 dark:text-white cursor-pointer text-center">
+                  No item found
+                </li>
+              </ul>
             </tr>
           </tbody>
         </table>
@@ -125,15 +136,15 @@
         <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
           Showing
           <span class="font-semibold text-gray-900 dark:text-white"
-            >{{ data.metas.current_page }}-{{ data.metas.per_page }}</span
+            >{{ metas.current_page }}-{{ metas.per_page }}</span
           >
           of
           <span class="font-semibold text-gray-900 dark:text-white">{{
-            data.metas.total
+            metas.total
           }}</span>
         </span>
         <ul class="inline-flex items-stretch -space-x-px">
-          <li @click="previousPage">
+          <li @click="fetchTable(activeIndex--)">
             <a
               href="#"
               class="flex items-center justify-center h-full py-1.5 px-3 ml-0 text-gray-500 bg-white rounded-l-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -152,7 +163,7 @@
             </a>
           </li>
 
-          <li @click="toggleActive(i)" v-for="i in data.metas.total">
+          <li @click="toggleActive(i)" v-for="i in metas.total">
             <a
               href="#"
               class="flex items-center justify-center text-sm py-2 px-3 text-gray-500 leading-tight border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
@@ -160,7 +171,7 @@
               >{{ i }}</a
             >
           </li>
-          <li @click="nextPage">
+          <li @click="fetchTable(activeIndex++)">
             <a
               href="#"
               class="flex items-center justify-center h-full py-1.5 px-3 leading-tight text-gray-500 bg-white rounded-r-lg border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
@@ -1019,123 +1030,37 @@
 <script setup lang="ts">
 const store = useProjectStore();
 const loading = ref(false);
-const data = ref({
-  results: [
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-    {
-      uuid: "994909d0-6171-4545-acde-4ec65a47f3e5",
-      key: "56beda2a-0eb3-4309-a444-44b5dd80a98c",
-      title: "new proj",
-      description: "this is description of project",
-      logo: null,
-      url: null,
-      webhook_url: null,
-      is_public: false,
-      status: 10000,
-    },
-  ],
-  metas: {
-    current_page: 1,
-    from: 1,
-    last_page: 1,
-    links: {
-      first: "http://127.0.0.1:8000/v1/my/projects?page=1",
-      last: "http://127.0.0.1:8000/v1/my/projects?page=1",
-      prev: null,
-      next: null,
-    },
-    path: "http://127.0.0.1:8000/v1/my/projects",
-    per_page: 5,
-    to: 1,
-    total: 10,
-  },
-});
 const showToast = ref(false);
+const data = ref([] as any);
+const metas = ref({} as any);
+
+const fetchTable = (page?: number) => {
+  loading.value = true;
+  store
+    .getProjects(page)
+    .then((res) => {
+      loading.value = false;
+
+      //@ts-ignore
+      data.value = res.results;
+      //@ts-ignore
+      metas.value = res.metas;
+    })
+    .catch((err) => {
+      if (err) {
+        showToast.value = true;
+      }
+    });
+};
+
 const removeToast = () => {
   showToast.value = false;
 };
-const activeIndex = ref(data.value.metas.current_page);
-const nextPage = () => {
-  if (activeIndex.value < data.value.metas.total) {
-    activeIndex.value++;
-  }
-};
-const previousPage = () => {
-  if (activeIndex.value > 1) {
-    activeIndex.value--;
-    console.log(activeIndex.value);
-  }
-};
-const fetchTable = (page: number) => {
-  console.log(page);
-  loading.value = true;
-  store
-    .getProjects()
-    .then((res) => {
-      loading.value = false;
-      console.log(res);
-    })
-    .catch((err) => {
-      // showToast.value = true;
-      console.log(err);
-    });
-};
+const activeIndex = ref(metas.current_page);
+
 const toggleActive = (page: number) => {
   activeIndex.value = page;
   fetchTable(page);
 };
+fetchTable(1);
 </script>
