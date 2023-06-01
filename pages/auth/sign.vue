@@ -155,7 +155,7 @@ const loginUser = async () => {
   const { auth } = await useAuth();
   auth.config.baseURL = "https://api.streamfy.net";
   auth
-    .requestOTP(identifier.value, "v1/accounts/request-otp")
+    .requestOTP(identifier.value, "/v1/accounts/request-otp")
     .then((res) => {
       if (res.succeed) {
         responseMsg.value = "Please Verify Your Email";
@@ -198,8 +198,9 @@ const getQR = async () => {
   isLoadingQR.value = true;
   refreshQr.value = false;
   const { auth } = await useAuth();
+  auth.config.baseURL = "https://api.streamfy.net";
   auth
-    .getQRSession("/v1/accounts/login/qr")
+    .getQRSession("/v1/accounts/qr")
     .then((res) => {
       isLoadingQR.value = false;
       refreshQr.value = false;
